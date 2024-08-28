@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <div class="column column-1">
+            <img src="Logo.png" alt="Logo" class="logo">
+            <div class="area">
+                <textarea id="inputText" placeholder="Ingrese su texto..." rows="10" cols="30"></textarea>
+            </div>
+            <div class="button-container">
+                <button class="btn" onclick="encryptText()">Encriptar</button>
+                <button class="btn" onclick="decryptText()">Desencriptar</button>
+            </div>
+        </div>
+        <div class="column column-2" id="outputColumn">
+            <img src="muneco.png" alt="Imagen de ejemplo" class="imagen">
+            <h2>Ningún mensaje fue <br> encontrado</h2>
+            <p>Ingresa el texto que desees encriptar o <br> desencriptar.</p>
+        </div>
+    </div>
+
+    <script>
+        function encryptText() {
+            let text = document.getElementById('inputText').value;
+
+            if (/[^a-z\s]/.test(text)) {
+                alert('Por favor, ingrese solo letras minúsculas sin acentos ni caracteres especiales.');
+                return;
+            }
+
+            let encryptedText = text
+                .replace(/e/g, 'enter')
+                .replace(/i/g, 'imes')
+                .replace(/a/g, 'ai')
+                .replace(/o/g, 'ober')
+                .replace(/u/g, 'ufat');
+
+            displayOutput(encryptedText);
+        }
+
+        function decryptText() {
+            let text = document.getElementById('inputText').value;
+
+            if (/[^a-z\s]/.test(text)) {
+                alert('Por favor, ingrese solo letras minúsculas sin acentos ni caracteres especiales.');
+                return;
+            }
+
+            let decryptedText = text
+                .replace(/enter/g, 'e')
+                .replace(/imes/g, 'i')
+                .replace(/ai/g, 'a')
+                .replace(/ober/g, 'o')
+                .replace(/ufat/g, 'u');
+            
+            displayOutput(decryptedText);
+        }
+
+        function displayOutput(text) {
+            const outputColumn = document.getElementById('outputColumn');
+            outputColumn.innerHTML = '';
+            const textElement = document.createElement('p');
+            textElement.textContent = text;
+            outputColumn.appendChild(textElement);
+
+            const copyButton = document.createElement('button');
+            copyButton.textContent = 'Copiar';
+            copyButton.className = 'btn';
+            copyButton.onclick = function() {
+                copyToClipboard(text);
+            };
+            outputColumn.appendChild(copyButton);
+
+            document.getElementById('inputText').value = '';
+        }
+
+        function copyToClipboard(text) {
+            const tempElement = document.createElement('textarea');
+            tempElement.value = text;
+            document.body.appendChild(tempElement);
+            tempElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempElement);
+            alert('Texto copiado al portapapeles');
+        }
+        
+    </script>
+</body>
+</html>

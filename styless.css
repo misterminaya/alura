@@ -1,0 +1,150 @@
+:root {
+    --dark-blue-100: #609ED4;
+    --dark-blue-200: #356EA9;
+    --dark-blue-300: #0A3871;
+    --dark-blue-400: #072B61;
+    --dark-blue-400-extra: #052051;
+    --gray-100: #CED4DA;
+    --gray-200: #ADB5BD;
+    --gray-500: #868e96;
+    --gray-400: #495057;
+    --gray-500-extra: #343A40;
+    --light-blue-100: #F3F5FC;
+    --light-blue-200: #EFF1FA;
+    --light-blue-300: #E9ECF8;
+    --light-blue-400: #AAB2D5;
+    --light-blue-500: #757FB2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-blue-100);
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
+
+.column-1 {
+    flex: 0 0 70%;
+    background-color: var(--light-blue-100) !important;
+}
+
+.column-2 {
+    flex: 0 0 30%;
+    height: 100%;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+
+}
+
+.column-2 p {
+    text-align: center;
+    padding-bottom: 120px;
+
+}
+
+
+.column {
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+}
+
+.column h2 {
+    color: var(--gray-500-extra);
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    padding-top: 32px;
+    padding-bottom: 16px;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: 48px;
+}
+
+.area {
+    padding-top: 60px;
+    padding-bottom: 160px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.imagen {
+    height: 100%;
+    margin: 10px 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-bottom: 20px;
+    }
+
+    .imagen {
+        display: none;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .column {
+        padding: 15px;
+    }
+
+    .imagen {
+        display: none;
+    }
+}
